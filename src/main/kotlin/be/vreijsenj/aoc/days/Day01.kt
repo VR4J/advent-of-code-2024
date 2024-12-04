@@ -22,24 +22,24 @@ object Day01 {
     }
 
     fun runPartOne(input: List<String>): Int {
-       val left = input.map { x -> toInt(x, 0) }.sorted()
-       val right = input.map { x -> toInt(x, 1) }.sorted()
+        val left = input.map { x -> toInt(x, 0) }.sorted()
+        val right = input.map { x -> toInt(x, 1) }.sorted()
 
-       return left.zip(right)
-        .map { (l, r) -> Math.abs(l - r) }
-        .sum()
+        return left.zip(right)
+            .map { (l, r) -> Math.abs(l - r) }
+            .sum()
     }
 
     fun runPartTwo(input: List<String>): Int {
         val left = input.map { x -> toInt(x, 0) }
         val right = input.map { x -> toInt(x, 1) }
-                         .groupingBy { it }
-                         .eachCount()
- 
+            .groupingBy { it }
+            .eachCount()
+
         return left
-         .map { l -> l * right.getOrElse(l, { 0 }) }
-         .sum()
-     }
+            .map { l -> l * right.getOrElse(l, { 0 }) }
+            .sum()
+    }
 
     fun toInt(input: String, index: Int): Int {
         return input.split("   ")[index].toInt()

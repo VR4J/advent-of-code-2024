@@ -30,45 +30,45 @@ object Day02 {
     }
 
     fun runPartTwo(reports: List<String>): Int {
-       return reports.map {
+        return reports.map {
             val levels: List<Int> = it.split(" ")
                 .map { levels -> levels.toInt() }
 
-           val isOriginallySafe = isIncremental(levels) || isDecremental(levels)
+            val isOriginallySafe = isIncremental(levels) || isDecremental(levels)
 
-           if(! isOriginallySafe) {
-               val possible = IntRange(0, levels.size).map { index ->
-                   levels.filterIndexed { i, level -> i != index}
-               }
+            if (!isOriginallySafe) {
+                val possible = IntRange(0, levels.size).map { index ->
+                    levels.filterIndexed { i, level -> i != index }
+                }
 
-               possible.any { isIncremental(it) || isDecremental(it) }
-           } else {
-               true
-           }
+                possible.any { isIncremental(it) || isDecremental(it) }
+            } else {
+                true
+            }
         }.count { it }
     }
 
     fun isIncremental(levels: List<Int>): Boolean {
         return levels.mapIndexed { index: Int, level: Int ->
-            if(index == 0) {
+            if (index == 0) {
                 true
             } else {
                 val previous = levels[index - 1]
-                val diff =  Math.abs(level - previous)
+                val diff = Math.abs(level - previous)
 
                 previous < level && diff <= 3 && diff > 0
             }
         }
-        .all { it }
+            .all { it }
     }
 
     fun isDecremental(levels: List<Int>): Boolean {
         return levels.mapIndexed { index: Int, level: Int ->
-            if(index == 0) {
+            if (index == 0) {
                 true
             } else {
                 val previous = levels[index - 1]
-                val diff =  Math.abs(level - previous)
+                val diff = Math.abs(level - previous)
 
                 previous > level && diff <= 3 && diff > 0
             }
