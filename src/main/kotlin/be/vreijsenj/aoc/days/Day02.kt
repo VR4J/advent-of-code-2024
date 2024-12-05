@@ -13,8 +13,8 @@ object Day02 {
             val resultPartOne = runPartOne(input);
             val resultPartTwo = runPartTwo(input);
 
-            println("Total distance (pt.1): $resultPartOne")
-            println("Similarity score (pt.2): $resultPartTwo")
+            println("Amount of safe reports (pt.1): $resultPartOne")
+            println("Amount of safe reports with the Problem Dampener (pt.2): $resultPartTwo")
         }
 
         println("Took $elapsed")
@@ -48,7 +48,7 @@ object Day02 {
         }.count { it }
     }
 
-    fun isIncremental(levels: List<Int>): Boolean {
+    private fun isIncremental(levels: List<Int>): Boolean {
         return levels.mapIndexed { index: Int, level: Int ->
             if (index == 0) {
                 true
@@ -62,7 +62,7 @@ object Day02 {
             .all { it }
     }
 
-    fun isDecremental(levels: List<Int>): Boolean {
+    private fun isDecremental(levels: List<Int>): Boolean {
         return levels.mapIndexed { index: Int, level: Int ->
             if (index == 0) {
                 true

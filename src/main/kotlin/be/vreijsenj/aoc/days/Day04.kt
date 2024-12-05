@@ -14,8 +14,8 @@ object Day04 {
             val resultPartOne = runPartOne(input);
             val resultPartTwo = runPartTwo(input);
 
-            println("Total distance (pt.1): $resultPartOne")
-            println("Similarity score (pt.2): $resultPartTwo")
+            println("Count of all XMAS occurences (pt.1): $resultPartOne")
+            println("Count of all X-MAS occurences (pt.2): $resultPartTwo")
         }
 
         println("Took $elapsed")
@@ -63,7 +63,7 @@ object Day04 {
         }.count { it }
     }
 
-    fun getRightDiagonal(rows: List<String>, columns: List<String>): List<String> {
+    private fun getRightDiagonal(rows: List<String>, columns: List<String>): List<String> {
         val rxDiagonal = columns.first().indices.map { y ->
             rows
                 .filterIndexed { x, row -> x + y < row.length }
@@ -80,7 +80,7 @@ object Day04 {
         return (rxDiagonal + ryDiagonal).distinct()
     }
 
-    fun getLeftDiagonal(rows: List<String>, columns: List<String>): List<String> {
+    private fun getLeftDiagonal(rows: List<String>, columns: List<String>): List<String> {
         val lxDiagonal = columns.first().indices.map { y ->
             rows
                 .filterIndexed { x, row -> y - x >= 0 }
@@ -97,7 +97,7 @@ object Day04 {
         return (lxDiagonal + lyDiagonal).distinct()
     }
 
-    fun occurences(text: String, sequence: List<String>): Int {
+    private fun occurences(text: String, sequence: List<String>): Int {
         val normal = sequence.sumOf {
             it.split(text).size - 1
         }

@@ -41,7 +41,7 @@ object Day01 {
             .sum()
     }
 
-    fun toInt(input: String, index: Int): Int {
+    private fun toInt(input: String, index: Int): Int {
         return input.split("   ")[index].toInt()
     }
 }

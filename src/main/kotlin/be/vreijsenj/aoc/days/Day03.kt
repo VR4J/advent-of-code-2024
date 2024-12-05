@@ -17,8 +17,8 @@ object Day03 {
             val resultPartOne = runPartOne(input);
             val resultPartTwo = runPartTwo(input);
 
-            println("Total distance (pt.1): $resultPartOne")
-            println("Similarity score (pt.2): $resultPartTwo")
+            println("Sum of all uncorrupted mul function results (pt.1): $resultPartOne")
+            println("Sum of all enabled mul function results (pt.2): $resultPartTwo")
         }
 
         println("Took $elapsed")
