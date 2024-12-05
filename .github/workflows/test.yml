@@ -32,3 +32,6 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build test
+    - name: Summarize tests results
+      uses: jeantessier/test-summary-action@v1
+      if: ${{ always() }}
